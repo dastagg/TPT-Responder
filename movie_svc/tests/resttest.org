@@ -1,0 +1,21 @@
+#+TITLE: resttest.org
+* This is the REST testing file
+** Make sure the site is up
+#+BEGIN_SRC restclient
+GET http://localhost:5042/
+#+END_SRC
+
+** GET movies that have "run" in the title
+#+BEGIN_SRC restclient
+GET http://localhost:5042/api/search/run
+#+END_SRC
+
+** GET directors that are named cameron
+#+BEGIN_SRC restclient
+GET http://localhost:5042/api/director/cameron
+#+END_SRC
+
+** GET the movie with the IMDB number tt0096754
+#+BEGIN_SRC restclient
+GET http://localhost:5042/api/movie/tt0096754
+#+END_SRC
