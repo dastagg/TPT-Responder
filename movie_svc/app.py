@@ -1,8 +1,8 @@
 import responder
 
+from api_instance import api
 from data import db
 
-api = responder.API()
 db.global_init()
 
 response_count_max = 10
@@ -34,7 +34,11 @@ def search_by_director(_, resp: responder.Response, director_name: str):
     if limited:
         movies = movies[:response_count_max]
     movie_dicts = [db.movie_to_dict(m) for m in movies]
-    resp.media = {"keyword": director_name, "hits": movie_dicts, "truncated_results": limited}
+    resp.media = {
+        "keyword": director_name,
+        "hits": movie_dicts,
+        "truncated_results": limited,
+    }
 
 
 # Movie by IMDB code
